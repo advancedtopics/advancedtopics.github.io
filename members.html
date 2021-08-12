@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  font-family: helvetica;
+  margin: 0px;
+  color: #565e75;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 18px 22px;
+  text-decoration: none;
+  font-size: 20px;
+  transition: 0.2s;
+}
+
+li a:hover {
+  background-color: #111;
+  cursor: pointer;
+}
+
+.page {
+  text-align: center;
+  padding: 10px;
+}
+
+#list {
+  margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+<ul>
+  <li style="float:left;"><a style="color:#32cd32;font-size:40px;padding:7px;padding-left:15px;">Advanced Topics</a></li>
+  <li><a href="/">Home</a></li>
+  <li><a href="/members">Members</a></li>
+  <li><a href="https://scratch.mit.edu/studios/30152868/comments">Studio</a></li>
+</ul>
+
+<div class="page">
+<h1>Members</h1>
+<span>Here is a list of the Scratchers joined the studio.</span>
+<div id="list">
+</div>
+</div>
+
+<script>
+fetch("https://cors-anywhere.herokuapp.com/https://api.scratch.mit.edu/studios/30152868/curators")
+    .then(response => response.json())
+    .then(data => {let i2 = data;
+for (let i = 0; i < i2.length; i++) {
+    document.getElementById("list").innerHTML += i2[i].username + ", ";
+}})
+
+setTimeout(function(){
+document.getElementById("list").innerText = document.getElementById("list").innerText.substring(0, document.getElementById("list").innerText.length - 1) + ".";
+}, 500)
+</script>
+</body>
+</html>
