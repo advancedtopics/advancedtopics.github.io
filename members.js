@@ -1,4 +1,4 @@
-fetch("https://cors-anywhere.herokuapp.com/https://api.scratch.mit.edu/studios/30152868/curators")
+fetch("https://api.scratch.mit.edu/studios/30152868/curators")
     .then(response => response.json())
     .then(data => {let i2 = data;
 for (let i = 0; i < i2.length; i++) {
