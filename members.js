@@ -7,3 +7,4 @@ for (let i = 0; i < i2.length; i++) {
 
 setTimeout(function(){
 document.getElementById("list").innerText = document.getElementById("list").innerText.substring(0, document.getElementById("list").innerText.length - 1) + ".";
+}, 1000)
